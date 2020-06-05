@@ -30,8 +30,10 @@ public class PessoaFisicaController {
 	public ResponseEntity<PessoaFisica> getPessoaFisica(@PathVariable(name = "numero_wa") String numero) {
 		logger.info(String.format("Novo GET -> numero_wa[%1$s]", numero));
 		Optional<PessoaFisica> pf = repository.findByNumerowa(numero);
-				
-		if(pf.isEmpty()) {
+		
+		
+		
+		if(!pf.isPresent()) {
 			return ResponseEntity.ok(null);
 		} else {
 			return ResponseEntity.ok(pf.get());

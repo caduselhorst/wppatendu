@@ -27,7 +27,7 @@ public class PessoaJuridicaController {
 		
 		Optional<PessoaJuridica> pf = repository.findByNumerowa(numero);
 		
-		if(pf.isEmpty()) {
+		if(!pf.isPresent()) {
 			return null;
 		} else {
 			return pf.get();
@@ -41,7 +41,7 @@ public class PessoaJuridicaController {
 		Optional<PessoaJuridica> pf = repository.findByCnpj(cnpj);
 		
 		
-		if(pf.isEmpty()) {
+		if(!pf.isPresent()) {
 			return null;
 		} else {
 			return pf.get();

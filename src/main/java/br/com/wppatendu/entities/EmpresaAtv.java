@@ -8,6 +8,7 @@ import javax.persistence.SequenceGenerator;
 
 @Entity(name = "empresaatv")
 public class EmpresaAtv {
+	
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SeqEmpresaAtv")
@@ -16,6 +17,7 @@ public class EmpresaAtv {
 	private String cnae;
 	private String descricao;
 	private Boolean principal;
+	
 	public Long getIdempresa_atv() {
 		return idempresaatv;
 	}

@@ -2,6 +2,7 @@ package br.com.wppatendu.controllers;
 
 import java.util.Optional;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -47,6 +48,19 @@ public class PessoaJuridicaController {
 			return pf.get();
 		}
 		
+	}
+	
+	@RequestMapping(value="pessoajuridica/id/{id}", method = RequestMethod.GET)
+	public ResponseEntity<PessoaJuridica> getPessoaFisicaById(@PathVariable(name = "id") Long id) {
+		//logger.info(String.format("Novo GET -> id[%1$s]", id));
+		Optional<PessoaJuridica> pf = repository.findById(id);
+			
+		if(!pf.isPresent()) {
+			return ResponseEntity.ok(null);
+		} else {
+			return ResponseEntity.ok(pf.get());
+		}
+				
 	}
 	
 	@RequestMapping(value="pessoajuridica", method = RequestMethod.POST)
